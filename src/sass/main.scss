@@ -1,0 +1,12 @@
+// Import vendor files
+
+@import '~semantic-ui-css/semantic.css';
+@import '~flexboxgrid/dist/flexboxgrid.css';
+
+// Import local files
+
+@import 'tools/fonts';
+@import 'tools/normalize';
+@import 'tools/vars';
+
+@import 'pages/calculator';
