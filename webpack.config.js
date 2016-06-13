@@ -28,7 +28,9 @@ module.exports = {
     },
     { test: /\.(png|woff|woff2|eot|ttf|svg)$/,
       loader: 'url-loader?limit=100000'
-    }]
+    },
+    { test: /\.json$/, loader: 'json-loader' }],
+    noParse: /node_modules\/json-schema\/lib\/validate\.js/
   },plugins: [
       new ExtractTextPlugin('style.css', {
           allChunks: true
@@ -42,6 +44,12 @@ module.exports = {
       new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['','.webpack.js', '.web.js', '.js', '.jsx']
+  },
+  node: {
+    console : true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };

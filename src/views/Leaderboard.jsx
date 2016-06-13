@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import BoardRow from './BoardRow';
+import tableState from '../utils/TableState';
+import Pagination from './Pagination';
+import {observer} from 'mobx-react';
 
+@observer
 export default class Leaderboard extends Component {
   render() {
     return(
       <div className="table-view">
         <h2 className="page-title">FCC Leaderboard</h2>
         <hr/>
-        <table className="ui celled padded table">
+        <table className="ui celled table">
           <thead>
             <tr>
               <th>#</th>
@@ -17,8 +22,9 @@ export default class Leaderboard extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr><td></td><td></td><td></td><td></td></tr>
+              <BoardRow/>
           </tbody>
+          <Pagination tableState={tableState}/>
         </table>
       </div>
     );
