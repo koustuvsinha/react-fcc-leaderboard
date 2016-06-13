@@ -5,6 +5,7 @@ const tableState =  new class TableState {
     @observable fccusers = [];
     @observable currentscope = [];
     @observable currentPage = 0;
+    @observable currentType = '';
 
     constructor() {
         // default fetch recent ones
@@ -17,6 +18,7 @@ const tableState =  new class TableState {
         {json: true, withCredentials: false}, (req,res,body) => {
           this.fccusers = body;
           this.populateScope(1);
+          this.currentType = 'Recent (30 Days)';
         })
     }
 
@@ -25,6 +27,7 @@ const tableState =  new class TableState {
         {json: true, withCredentials: false}, (req,res,body) => {
           this.fccusers = body;
           this.populateScope(1);
+          this.currentType = 'All Time';
         })
     }
 

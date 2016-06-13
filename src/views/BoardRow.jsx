@@ -16,7 +16,7 @@ export default class BoardRow extends Component {
       <tr><td>{this.props.tableState.currentPage * this.props.tableState.pageSize + i + 1}</td><td>
         <h4 className="ui image header">
           <img src={x.img} className="ui mini rounded image"/>
-          <div className="content">{x.username}</div>
+          <div className="content"><a href={`https://github.com/${x.username}`} target="_blank">{x.username}</a></div>
         </h4>
       </td>
       <td>{x.recent}</td><td>{x.alltime}</td></tr>
