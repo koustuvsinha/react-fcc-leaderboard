@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "build" : "webpack --progress -p"
+    "build": "webpack --progress -p"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "eslint-plugin-react": "^2.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "node-sass": "^3.7.0",
+    "react-hot-loader": "^1.3.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.9.6",
