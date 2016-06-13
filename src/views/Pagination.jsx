@@ -21,9 +21,9 @@ export default class Pagination extends Component {
     let numPages = this.props.tableState.numPages;
     var pArr = [];
     if(numPages <= 7) {
-      pArr = [...Array(numPages)];
+      pArr = [...Array(numPages).keys()];
     } else {
-      pArr = [...Array(7)]
+      pArr = [...Array(7).keys()];
     }
     this.setState({numPages : numPages, pageArray: pArr});
   }
@@ -38,15 +38,18 @@ export default class Pagination extends Component {
       pArr.pop();
     }
     this.setState({pageArray: pArr});
+    this.forceUpdate();
   }
   addRight() {
     var pArr = this.state.pageArray;
     const last = pArr[pArr.length - 1];
-    if(last < this.state.numPages) {
+    if(last + 2 < this.props.tableState.numPages) {
       pArr.shift();
       pArr.push(last + 1);
     }
     this.setState({pageArray: pArr});
+    this.forceUpdate();
+    console.log(pArr);
   }
   render() {
     return(
@@ -59,7 +62,7 @@ export default class Pagination extends Component {
                 </a>
                 {
                 this.state.pageArray.map((x,i)=>
-                  <div onClick={() => this.handleNavigation(i+1)}><a className="item">{i + 1}</a></div>
+                  <div onClick={() => this.handleNavigation(x+1)}><a className="item">{x + 1}</a></div>
                 )}
                 <a className="icon item" onClick={this.addRight}>
                   <i className="right chevron icon"></i>
