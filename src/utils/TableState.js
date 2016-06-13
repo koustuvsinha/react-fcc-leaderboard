@@ -10,7 +10,7 @@ const tableState =  new class TableState {
     constructor() {
         // default fetch recent ones
         this.fetchRecentUsers();
-        this.pageSize = 7;
+        this.pageSize = 6;
     }
 
     fetchRecentUsers() {
@@ -32,7 +32,7 @@ const tableState =  new class TableState {
     }
 
     @computed get numPages() {
-      return Math.floor(this.fccusers.length / this.pageSize) + this.fccusers.length % this.pageSize
+      return Math.floor(this.fccusers.length / this.pageSize) + 1
     }
 
     populateScope(pageNum) {

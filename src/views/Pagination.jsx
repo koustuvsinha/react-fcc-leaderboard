@@ -43,13 +43,12 @@ export default class Pagination extends Component {
   addRight() {
     var pArr = this.state.pageArray;
     const last = pArr[pArr.length - 1];
-    if(last + 2 < this.props.tableState.numPages) {
+    if(last + 1 < this.props.tableState.numPages) {
       pArr.shift();
       pArr.push(last + 1);
     }
     this.setState({pageArray: pArr});
     this.forceUpdate();
-    console.log(pArr);
   }
   render() {
     return(
