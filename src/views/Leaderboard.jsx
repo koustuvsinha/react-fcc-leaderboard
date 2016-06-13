@@ -21,9 +21,7 @@ export default class Leaderboard extends Component {
               <th>All time points</th>
             </tr>
           </thead>
-          <tbody>
-              <BoardRow/>
-          </tbody>
+          <BoardRow tableState={tableState}/>
           <Pagination tableState={tableState}/>
         </table>
       </div>

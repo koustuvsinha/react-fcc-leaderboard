@@ -14,7 +14,7 @@ const tableState =  new class TableState {
       request.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent',
         {json: true, withCredentials: false}, (req,res,body) => {
           this.fccusers = body;
-          this.populateScope(0);
+          this.populateScope(1);
         })
     }
 
@@ -22,7 +22,7 @@ const tableState =  new class TableState {
       request.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime',
         {json: true, withCredentials: false}, (req,res,body) => {
           this.fccusers = body;
-          this.populateScope(0);
+          this.populateScope(1);
         })
     }
 
