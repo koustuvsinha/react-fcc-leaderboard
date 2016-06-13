@@ -5,14 +5,14 @@ import {observer} from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 require("./sass/main.scss");
 import $ from 'jquery'
-import Calculator from './views/calculator'
+import Leaderboard from './views/Leaderboard'
 
-class CalculatorView extends Component {
+class LeaderboardView extends Component {
     render() {
         return (
             <div>
                 <div className="ui raised very padded text container segment">
-                    <Calculator/>
+                    <Leaderboard/>
                 </div>
                 <div className="ui container text">
                 <hr/>
@@ -28,4 +28,4 @@ class CalculatorView extends Component {
 
 
 
-ReactDOM.render(<CalculatorView/>, document.getElementById('root'));
+ReactDOM.render(<LeaderboardView/>, document.getElementById('root'));
