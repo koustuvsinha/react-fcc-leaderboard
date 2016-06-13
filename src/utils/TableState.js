@@ -4,10 +4,12 @@ import request from 'request';
 const tableState =  new class TableState {
     @observable fccusers = [];
     @observable currentscope = [];
+    @observable currentPage = 0;
 
     constructor() {
         // default fetch recent ones
         this.fetchRecentUsers();
+        this.pageSize = 7;
     }
 
     fetchRecentUsers() {
@@ -27,13 +29,14 @@ const tableState =  new class TableState {
     }
 
     @computed get numPages() {
-      return Math.floor(this.fccusers.length / 10) + this.fccusers.length % 10
+      return Math.floor(this.fccusers.length / this.pageSize) + this.fccusers.length % this.pageSize
     }
 
     populateScope(pageNum) {
-      let start = (pageNum - 1) * 10;
-      let end = start + 10;
+      let start = (pageNum - 1) * this.pageSize;
+      let end = start + this.pageSize;
       this.currentscope = this.fccusers.slice(start, end);
+      this.currentPage = pageNum - 1;
     }
 
 }();

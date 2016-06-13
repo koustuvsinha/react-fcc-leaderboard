@@ -13,7 +13,7 @@ export default class BoardRow extends Component {
       <tbody>
       {
       this.props.tableState.currentscope.map((x,i)=>
-      <tr><td>{i}</td><td>
+      <tr><td>{this.props.tableState.currentPage * this.props.tableState.pageSize + i}</td><td>
         <h4 className="ui image header">
           <img src={x.img} className="ui mini rounded image"/>
           <div className="content">{x.username}</div>
