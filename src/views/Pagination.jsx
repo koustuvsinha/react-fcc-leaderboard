@@ -8,14 +8,19 @@ var hiddenDiv = {
 
 @observer
 export default class Pagination extends Component {
+
   constructor(props) {
     super(props);
     this.state = {numPages : 0};
+    this.handleNavigation = this.handleNavigation.bind(this);
   }
   componentWillReact() {
     console.log('component will react');
     console.log(this.props.tableState.numPages);
     this.setState({numPages : this.props.tableState.numPages});
+  }
+  handleNavigation(pos) {
+    this.props.tableState.populateScope(pos);
   }
   render() {
     return(
@@ -23,16 +28,10 @@ export default class Pagination extends Component {
             <tr>
             <th colSpan="4">
               <div className="ui right floated pagination menu">
-                <a className="icon item">
-                  <i className="left chevron icon"></i>
-                </a>
                 {
                 [...Array(this.state.numPages)].map((x,i)=>
-                  <a className="item">{i}</a>
+                  <div onClick={() => this.handleNavigation(i+1)}><a className="item">{i + 1}</a></div>
                 )}
-                <a className="icon item">
-                  <i className="right chevron icon"></i>
-                </a>
               </div>
               <div style={hiddenDiv}>
                 Pages : {this.props.tableState.numPages}

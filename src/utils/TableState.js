@@ -31,7 +31,9 @@ const tableState =  new class TableState {
     }
 
     populateScope(pageNum) {
-      this.currentscope = this.fccusers.slice(((pageNum - 1) * 10),10);
+      let start = (pageNum - 1) * 10;
+      let end = start + 10;
+      this.currentscope = this.fccusers.slice(start, end);
     }
 
 }();
